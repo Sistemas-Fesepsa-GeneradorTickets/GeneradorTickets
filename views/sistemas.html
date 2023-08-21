@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Sistemas</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/sistemas.css">
+</head>
+<body>
+
+ 
+        <header>
+            <img src="../assets/img/logo-fesepsa.png" alt="" class="logo">
+            <h3 class="logo-text">Sistemas Fesepsa C-A-F</h3>
+        </header>
+        
+       <main class="contenedor">
+        <aside class="column column-30">
+            <ul class="lista-items">
+              <li><a href="#" id="tckPendientes">Tickets Pendientes</a></li>
+              <li><a href="#" id="tckResueltos">Tickets Resueltos</a></li>
+               <li><a href="#" id="generarExcel">Generar Excel</a></li>
+               <li><a href="#">Requerimientos Sistemas</a></li>
+            </ul>
+            <div class="footer">
+              <h2>Todos los derechos reservados © | C | A | F ~ 2023 V.1.0</h2>
+          </div>
+        </aside>
+        <section class="column column-70">
+             
+            
+            <div class="container">
+                <table id="dataExcel">
+                  <thead>
+                    <tr>
+                      <th>Área</th>
+                      <th>Fecha</th>
+                      <th>Hora</th>
+                      <th>Nombre</th>
+                      <th >Requerimiento</th>
+                      <th>Estado</th>
+                      <th>Archivo</th>
+                      <th>Accion</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cajaRequerimientos">
+                    <!-- Filas según sea necesario -->
+                  </tbody>
+                </table>
+ 
+
+        </section>
+  </main>
+
+  
+       
+    
+    <script src="../crud/sistemas.js" type="module"></script>
+
+</body>
+</html>

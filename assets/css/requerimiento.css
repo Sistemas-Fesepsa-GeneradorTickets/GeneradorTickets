@@ -1,0 +1,45 @@
+#formRequerimiento {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%,-42%);
+}
+
+#formRequerimiento select,
+#formRequerimiento input[type="text"],
+#formRequerimiento input[type="file"],
+#formRequerimiento textarea,
+#formRequerimiento input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+  /* Evitar que el textarea sea redimensionable */
+  #formRequerimiento textarea {
+    resize: none;
+}
+
+#formRequerimiento input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#formRequerimiento input[type="submit"]:hover {
+    background-color: #555;
+}
+
+label {
+    font-weight: bold;
+}

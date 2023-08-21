@@ -1,0 +1,177 @@
+
+/**************************************************/
+
+
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+
+}
+
+.column {
+    padding: 10px;
+    border: 1px solid #ccc;
+    height: 100%;
+  }
+  
+  .column-30 {
+    flex: 20%;
+    background: #fcfefb;
+  }
+  
+  .column-70 {
+    flex: 80%;
+    background: #f8f9fa;
+  }
+
+ /***************************************************/
+ 
+ .container {
+    max-width: 950px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  th, td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+
+   .action-eliminar{
+    background-color: #a12323;
+   }
+
+   .action-cambEstado{
+    background-color: #bfd11e;
+   }
+    
+    .action-pendiente{
+      background-color: #4CAF50;
+    }
+
+  .action-button {
+    
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .action-eliminar:hover{
+    background-color: #c83131;
+  }
+
+  .action-pendiente:hover {
+    background-color: #45a049;
+  }
+
+  .action-cambEstado{
+    background-color: #bbca31;
+   }
+
+
+  @media screen and (max-width: 600px) {
+    th, td {
+      padding: 8px;
+    }
+  }
+
+
+  /***************************************************/
+
+
+  .lista-items {
+    list-style: none;
+    padding: 0;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.lista-items li {
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.lista-items a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+    text-align: center;
+}
+
+.lista-items a:hover {
+    background-color: #ddd;
+}
+
+/***********************************************/
+
+.footer {
+
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    top: 150px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 14px;
+    color: #555;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 0;
+}
+
+.descarga{
+   text-align: center;
+   font-size: 19px;
+  
+}
+
+.descarga a {
+  text-decoration: none;
+}
+
+.deshabilitar {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.descarga:hover{
+  cursor: pointer;
+}
+
