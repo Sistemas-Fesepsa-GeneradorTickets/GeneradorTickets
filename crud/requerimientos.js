@@ -59,7 +59,10 @@ import {
       cbxAreas.selectedIndex = 0;
       formRequerimiento["txtRequerimiento"].value = "";
       formRequerimiento["txtNombre"].value = "";
+      console.log(inputArchivo.value);
       inputArchivo.value = "";
+      window.location.reload()
+    
     } catch (error) {
       console.log(error);
     }
