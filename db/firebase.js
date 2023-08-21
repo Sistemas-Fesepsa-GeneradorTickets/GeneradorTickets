@@ -31,6 +31,7 @@ from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js"
  };
 
 
+
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig)
 
@@ -41,7 +42,7 @@ const db = getFirestore(app)
 const storage = getStorage(app)
 
 //CRUD 
-export const  crearRequerimiento = requerimiento => addDoc(collection(db,'requerimientos'),requerimiento) 
+export const  crearRequerimiento = (requerimiento,coleccion) => addDoc(collection(db,coleccion),requerimiento) 
 
 export const  leerRequerimientos = (fcFlecha)  => onSnapshot(collection(db,"requerimientos"),fcFlecha)
 

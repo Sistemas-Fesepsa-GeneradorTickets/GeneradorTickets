@@ -51,7 +51,7 @@ import {
         objetoRequerimiento.enlace = enlaceArchivo;
       }
   
-      await crearRequerimiento(objetoRequerimiento);
+      await crearRequerimiento(objetoRequerimiento,'requerimientos');
   
       alert("Requerimiento Registrado Exitosamente");
       formRequerimiento["btnEnviar"].disabled = false;
@@ -59,9 +59,8 @@ import {
       cbxAreas.selectedIndex = 0;
       formRequerimiento["txtRequerimiento"].value = "";
       formRequerimiento["txtNombre"].value = "";
-      console.log(inputArchivo.value);
       inputArchivo.value = "";
-      window.location.reload()
+      //window.location.reload()
     
     } catch (error) {
       console.log(error);
