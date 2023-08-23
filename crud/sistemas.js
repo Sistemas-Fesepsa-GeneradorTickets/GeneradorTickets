@@ -52,13 +52,36 @@ async function obtenerRequerimientosBDPendientes(){
 
    const tbodyRequerimientos = document.getElementById("cajaRequerimientos")
   
-   await  leerRequerimientos((requerimientos)=>{
+   await  leerRequerimientos('requerimientos',(requerimientos)=>{
           limpiarHTML(tbodyRequerimientos);
           requerimientos.docs.map(requerimientoDB=>{
                
                const {nombre,areaRequerimiento,fecha,requerimiento,estado,enlace} = requerimientoDB.data();
                if(estado==false){
-                let arrayFecha = fecha.split(" ");
+               
+              // Crear un objeto Date con la marca de tiempo
+              const date = new Date(fecha.toDate());
+
+              // Obtener los componentes de la fecha (día, mes y año)
+              const dia = date.getDate().toString().padStart(2, '0'); // Asegura que siempre tenga dos dígitos
+              const mes = (date.getMonth() + 1).toString().padStart(2, '0'); // Los meses son base 0, por eso sumamos 1
+              const anio = date.getFullYear();
+                            
+              // Obtener los componentes de la hora (hora, minuto y segundo)
+              const hora = date.getHours().toString().padStart(2, '0');
+              const minutos = date.getMinutes().toString().padStart(2, '0');
+              const segundos = date.getSeconds().toString().padStart(2, '0');
+
+
+              // Formatear la fecha en el formato "dd/mm/yyyy"
+              const fechaFormateada = `${dia}/${mes}/${anio}`;
+
+
+              // Formatear la hora en el formato "hh:mm:ss"
+              const horaFormateada = `${hora}:${minutos}:${segundos}`;
+
+
+
                
                 const filaReq = document.createElement("tr");
  
@@ -88,8 +111,8 @@ async function obtenerRequerimientosBDPendientes(){
                 }
 
                 tdArea.textContent = areaRequerimiento
-                tdFecha.textContent = arrayFecha[0]
-                tdHora.textContent = arrayFecha[1]  
+                tdFecha.textContent = fechaFormateada
+                tdHora.textContent = horaFormateada
                 tdNombre.textContent = nombre
                 tdReq.textContent = requerimiento
                 
@@ -103,7 +126,7 @@ async function obtenerRequerimientosBDPendientes(){
                tdbtn.appendChild(btnReq)
                
                btnReq.onclick = async function(){ 
-                  await cambiarEstadoRequerimiento(requerimientoDB.id,{
+                  await cambiarEstadoRequerimiento('requerimientos',requerimientoDB.id,{
                    estado:true,
                    resuelto: serverTimestamp()
                  })
@@ -134,14 +157,34 @@ async function obtenerRequerimientosBDResueltos(){
 
   const tbodyRequerimientos = document.getElementById("cajaRequerimientos")
  
-  await  leerRequerimientos((requerimientos)=>{
+  await  leerRequerimientos('requerimientos',(requerimientos)=>{
          limpiarHTML(tbodyRequerimientos);
          requerimientos.docs.map(requerimientoDB=>{
               
               const {nombre,areaRequerimiento,fecha,requerimiento,estado,enlace} = requerimientoDB.data();
 
               if(estado){
-               let arrayFecha = fecha.split(" ");
+              
+               // Crear un objeto Date con la marca de tiempo
+               const date = new Date(fecha.toDate());
+
+               // Obtener los componentes de la fecha (día, mes y año)
+               const dia = date.getDate().toString().padStart(2, '0'); // Asegura que siempre tenga dos dígitos
+               const mes = (date.getMonth() + 1).toString().padStart(2, '0'); // Los meses son base 0, por eso sumamos 1
+               const anio = date.getFullYear();
+
+               // Obtener los componentes de la hora (hora, minuto y segundo)
+               const hora = date.getHours().toString().padStart(2, '0');
+               const minutos = date.getMinutes().toString().padStart(2, '0');
+               const segundos = date.getSeconds().toString().padStart(2, '0');
+
+
+               // Formatear la fecha en el formato "dd/mm/yyyy"
+               const fechaFormateada = `${dia}/${mes}/${anio}`;
+
+
+               // Formatear la hora en el formato "hh:mm:ss"
+               const horaFormateada = `${hora}:${minutos}:${segundos}`;
               
                const filaReq = document.createElement("tr");
 
@@ -176,8 +219,8 @@ async function obtenerRequerimientosBDResueltos(){
 
 
                tdArea.textContent = areaRequerimiento
-               tdFecha.textContent = arrayFecha[0]
-               tdHora.textContent = arrayFecha[1]
+               tdFecha.textContent = fechaFormateada
+               tdHora.textContent = horaFormateada
                tdNombre.textContent = nombre
                tdReq.textContent = requerimiento
                
@@ -193,7 +236,7 @@ async function obtenerRequerimientosBDResueltos(){
               btnReq.onclick = async function(){ 
                   const validador =  confirm("Estas seguro que deseas cambiar el estado de este ticket")
                   if(validador){
-                      await cambiarEstadoRequerimiento(requerimientoDB.id,{
+                      await cambiarEstadoRequerimiento('requerimientos',requerimientoDB.id,{
                         estado:false,
                         resuelto: null
                       })
@@ -219,7 +262,7 @@ async function obtenerRequerimientosBDResueltos(){
 
 
 
-  
+
 
 function limpiarHTML(elemento){
     while(elemento.firstChild){

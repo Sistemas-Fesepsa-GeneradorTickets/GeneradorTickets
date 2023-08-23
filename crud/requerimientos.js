@@ -5,13 +5,20 @@ import {
     obtenerEnlaceDescarga,
   } from "../db/firebase.js";
   
+  import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/+esm'
+
+  import { 
+    serverTimestamp
+    }
+ from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js"
+
   const formRequerimiento = document.getElementById("formRequerimiento");
   const cbxAreas = document.getElementById("cbxAreas");
   const inputArchivo = document.getElementById("txtArchivo");
   
   let areaRequerimiento;
-  const actualFech = new Date();
-  const fechaHora = `${actualFech.getDate()}/${actualFech.getMonth() + 1}/${actualFech.getFullYear()} ${actualFech.getHours()}:${actualFech.getMinutes()}:${actualFech.getSeconds()}`;
+  //const actualFech = new Date();
+  //const fechaHora = `${actualFech.getDate()}/${actualFech.getMonth() + 1}/${actualFech.getFullYear()} ${actualFech.getHours()}:${actualFech.getMinutes()}:${actualFech.getSeconds()}`;
   
   let archivo;
   
@@ -37,7 +44,7 @@ import {
         areaRequerimiento,
         requerimiento,
         nombre,
-        fecha: fechaHora,
+        fecha: serverTimestamp(),
         estado: false,
         enlace: null,
       };
@@ -53,14 +60,19 @@ import {
   
       await crearRequerimiento(objetoRequerimiento,'requerimientos');
   
-      alert("Requerimiento Registrado Exitosamente");
+      Swal.fire(
+        'Requerimiento Registrado',
+        ' ',
+        'success'
+      )
       formRequerimiento["btnEnviar"].disabled = false;
       formRequerimiento["btnEnviar"].style.opacity = "1";
       cbxAreas.selectedIndex = 0;
       formRequerimiento["txtRequerimiento"].value = "";
       formRequerimiento["txtNombre"].value = "";
       inputArchivo.value = "";
-      //window.location.reload()
+      
+      
     
     } catch (error) {
       console.log(error);

@@ -44,9 +44,9 @@ const storage = getStorage(app)
 //CRUD 
 export const  crearRequerimiento = (requerimiento,coleccion) => addDoc(collection(db,coleccion),requerimiento) 
 
-export const  leerRequerimientos = (fcFlecha)  => onSnapshot(collection(db,"requerimientos"),fcFlecha)
+export const  leerRequerimientos = (coleccion,fcFlecha)  => onSnapshot(collection(db,coleccion),fcFlecha)
 
-export const cambiarEstadoRequerimiento = (referencia,estadoActualizado) => updateDoc(doc(db,"requerimientos",referencia),estadoActualizado)
+export const cambiarEstadoRequerimiento = (coleccion,referencia,estadoActualizado) => updateDoc(doc(db,coleccion,referencia),estadoActualizado)
 
 export const eliminarRequerimiento = (referencia) => deleteDoc(doc(db,"requerimientos",referencia))
 
