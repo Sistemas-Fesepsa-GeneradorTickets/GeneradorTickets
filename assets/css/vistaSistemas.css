@@ -88,12 +88,16 @@
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 560px;
+    overflow-y: scroll;
+     
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+  
   }
 
   th, td {
