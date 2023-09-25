@@ -12,6 +12,11 @@ import {
     }
  from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js"
 
+ import {
+     enviarCorreo
+ } 
+ from "../assets/js/email.js"
+
   const formRequerimiento = document.getElementById("formRequerimiento");
   const cbxAreas = document.getElementById("cbxAreas");
   const inputArchivo = document.getElementById("txtArchivo");
@@ -59,7 +64,7 @@ import {
       }
   
       await crearRequerimiento(objetoRequerimiento,'requerimientos');
-  
+      await enviarCorreo()
       Swal.fire(
         'Requerimiento Registrado',
         ' ',
